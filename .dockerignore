@@ -1,0 +1,6 @@
+__pycache
+*.pyc
+venv/
+.git/
+logs/
+*.ipynb
