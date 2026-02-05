@@ -1,148 +1,97 @@
-## 🎬 Movie Review Sentiment Analysis using NLP
+## ☁️ AWS EC2 Deployment – Sentiment Analysis Application
+## 📋 Project Objective
 
-This project is a Movie Review Sentiment Analysis system built using Natural Language Processing (NLP) and Machine Learning.
-It predicts whether a movie review is Positive or Negative.
+This project demonstrates the end-to-end deployment of a Python-based Sentiment Analysis application using Amazon EC2.
+The objective was to move a locally developed NLP model to a production-ready cloud environment and make it accessible through a public IP address.
 
-The project also includes a Streamlit web application where users can:
-* Explore data
-* Train models
-* Test predictions interactively
+## 🧠 Key Skills & Concepts Covered
 
-This project is designed to learn the complete NLP pipeline from data loading to deployment.
+Infrastructure provisioning using AWS EC2 (IaaS)
 
-## ✨ Key Features
+Linux server administration on Ubuntu
 
-* Load IMDB movie reviews dataset
-* Clean and preprocess text data step by step
-* Convert text into numerical features
-* Train multiple machine learning models
-* Evaluate model performance
-* Predict sentiment for new movie reviews
-* User-friendly Streamlit interface
+Secure remote access using SSH and key pairs
 
-## 🧠 NLP & ML Concepts Covered
-* Text preprocessing (cleaning, tokenization, stopwords, lemmatization)
-* Feature extraction:
-     * Bag of Words (BoW)
-     * TF-IDF
-* Classification algorithms:
-     * Logistic Regression
-     * Naive Bayes
-     * Support Vector Machine (SVM)
-     * Random Forest
-* Model evaluation metrics:
-     * Accuracy
-     * Precision
-     * Recall
-     * F1-Score
+Network configuration using AWS Security Groups
 
-## 🛠️ Technologies Used
-* Python
-* Pandas & NumPy
-* Scikit-learn
-* NLTK
-* Streamlit
-* Hugging Face Datasets (IMDB)
-* Matplotlib & Plotly
+Hosting ML/NLP applications in a cloud environment
 
-## 📂 Project Structure
-├── app.py                  # Streamlit web application
+Running applications persistently using tmux
 
-├── main.py                 # Complete sentiment analysis pipeline
+## 🏗️ Infrastructure Overview
 
-├── data_ingestion.py       # Load IMDB dataset
+Cloud Platform: Amazon Web Services (AWS)
 
-├── preprocessing.py        # Text preprocessing steps
+Compute Service: EC2 (Elastic Compute Cloud)
 
-├── feature_extraction.py   # BoW and TF-IDF feature extraction
+Instance Type: t2.micro (Free Tier eligible)
 
-├── model_training.py       # ML model training & evaluation
+Operating System: Ubuntu Server 22.04 LTS
 
-├── custom_exception.py     # Custom exception handling
+Framework Used: Streamlit
 
-├── logger.py               # Logging setup
+Application Port: 8501
 
-├── download.py             # Download NLTK resources
+## ⚙️ Deployment Steps
+1️⃣ EC2 Instance Configuration
 
-├── test.py                 # Exception handling test file
+Launched an EC2 instance with Ubuntu OS.
 
-├── requirements.txt        # Required Python libraries
+Created a .pem key pair for secure SSH authentication.
 
-├── logs/                   # Log files
+Configured Security Group inbound rules:
 
-└── README.md               # Project documentation
+Port 22 (SSH)
 
-## 🧹 Text Preprocessing Steps
+Port 80 (HTTP)
 
-The text preprocessing pipeline performs the following steps:
+Port 8501 (Streamlit application)
 
-1.Convert text to lowercase
-2.Remove HTML tags
-3.Remove URLs
-4.Remove punctuation
-5.Remove numbers
-6.Remove extra spaces
-7.Tokenization
-8.Remove stopwords
-9.Apply stemming (optional)
-10.Apply lemmatization (default)
+2️⃣ Secure Server Access
 
-This helps convert raw text into clean and meaningful text for machine learning.
+Connected to the EC2 instance from the local machine using SSH after setting proper key permissions.
 
-## ▶️ How to Run the Project
-Run the Streamlit Web App
+3️⃣ Server Environment Setup
 
-* streamlit run app.py
+Updated system packages.
 
-The application will open in your browser where you can:
+Installed Python, pip, virtual environment tools, Git, and tmux.
 
-Train models
+Prepared the server to run Python-based applications.
 
-View metrics
+4️⃣ Application Deployment
 
-Predict sentiments
+Cloned the project repository onto the EC2 instance.
 
-## 🔄 How the Project Works
+Created and activated a Python virtual environment.
 
-1.Data Ingestion
-  Loads IMDB movie reviews using Hugging Face datasets
+Installed all required dependencies using requirements.txt.
 
-2.Preprocessing
-  Cleans and normalizes the text
+5️⃣ Application Execution
 
-3.Feature Extraction
-  Converts text into numerical vectors
+Used tmux to run the application in a persistent session.
 
-4.Model Training
-  Trains selected ML model
+Launched the Streamlit app and bound it to port 8501.
 
-5.Evaluation
-  Displays accuracy, precision, recall, and F1-score
+Verified successful access via the EC2 public IP address.
 
-6.Prediction
-  Predicts sentiment for user-entered reviews
+## 🛡️ Challenges & Resolution
 
-## 🧪 Exception Handling & Logging
+Issue: Application was running but not accessible externally.
+Resolution: Added a Custom TCP inbound rule for Port 8501 in the EC2 Security Group to allow external access.
 
-* Custom exceptions are handled using custom_exception.py
-* Errors and logs are recorded using logger.py
-* test.py demonstrates how exceptions and logging work
+## 📈 Additional Highlights
 
-## 📊 Output
+Deployed using AWS Free Tier for cost efficiency
 
-* Shows whether a review is Positive 😊 or Negative 😞
-* Displays confidence score (if available)
-* Visual performance metrics in the UI
+Implemented isolated dependency management using virtual environments
 
-## 📦 Requirements
+Gained hands-on experience with manual cloud deployment
 
-All required libraries are listed in requirements.txt, including:
+Improved understanding of cloud security and networking
 
-1.pandas
-2.numpy
-3.scikit-learn
-4.nltk
-5.streamlit
-6.plotly
-7.datasets
+Demonstrated end-to-end ownership of a production-style ML project
 
+## ✅ Outcome
+
+The Sentiment Analysis application was successfully deployed on AWS EC2, making it accessible in a real-world cloud environment and demonstrating practical cloud deployment skills.
